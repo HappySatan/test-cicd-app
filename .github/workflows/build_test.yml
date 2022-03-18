@@ -37,6 +37,11 @@ jobs:
             - name: Generate deployment package
               run: zip -r deploy.zip . -x '*.git*'
 
+            - name: Copying file to S3
+              run: aws s3 cp deploy.zip s3://elasticbeanstalk-us-east-2-734766867964/
+            - name: success Message
+              run: echo "CI part finished successfuly"
+
             - name: Deploy to EB
               uses: einaregilsson/beanstalk-deploy@v20
               with:
