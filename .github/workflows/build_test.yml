@@ -45,7 +45,7 @@ jobs:
                   aws-region: "us-east-2"
 
             - name: Copying file to S3
-              run: aws s3 cp deploy.zip s3://elasticbeanstalk-us-east-2-734766867964/
+              run: aws s3 cp deploy.zip s3://elasticbeanstalk-us-east-2-734766867964/cicd-retesting-application-django/
             - name: success Message
               run: echo "CI part finished successfuly"
 
