@@ -3,6 +3,8 @@ name: Build and Test
 on:
     push:
         branches: [main]
+        tags:
+            - "v*.*.*"
 
 jobs:
     test:
@@ -55,7 +57,7 @@ jobs:
                   use_existing_version_if_available: true
                   application_name: cicd-retesting-application-django
                   environment_name: Cicdretestingapplicationdjango-env
-                  version_label: 2.1
+                  version_label: ${GITHUB_REF#refs/*/}
                   region: "us-east-2"
                   deployment_package: deploy.zip
 
